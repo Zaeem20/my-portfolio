@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://zaeem.dev/sitemap.xml",
+    sitemap: "https://zaeem.is-a.dev/sitemap.xml",
   };
 }

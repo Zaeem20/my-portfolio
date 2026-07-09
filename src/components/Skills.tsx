@@ -4,6 +4,28 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SpotlightCard from "./ui/SpotlightCard";
+import {
+  SiPython,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiDjango,
+  SiDocker,
+  SiKubernetes,
+  SiLangchain,
+  SiGo,
+  SiLinux,
+  SiGit,
+  SiMetasploit,
+  SiBurpsuite,
+  SiWireshark,
+  SiFastapi
+} from "react-icons/si";
+import {
+  FaAws,
+  FaNetworkWired,
+  FaDatabase,
+} from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +44,7 @@ const skillGroups = [
   },
   {
     label: "Cybersecurity",
-    skills: ["Pen Testing", "Network Security", "Web App Security", "OSINT", "Vulnerability Assessment", "Red Teaming", ],
+    skills: ["Pen Testing", "Network Security", "Web App Security", "OSINT", "Vulnerability Assessment", "Red Teaming"],
   },
   {
     label: "AI / ML",
@@ -35,10 +57,22 @@ const skillGroups = [
 ];
 
 const techMarquee = [
-  "Python", "React", "Next.js", "Django", "Express", "Docker",
-  "Kubernetes", "AWS", "GCP", "TensorFlow", "Burp Suite", "Nmap",
-  "TypeScript", "Go", "Java", "PHP", "PostgreSQL", "MongoDB",
-  "Redis", "GraphQL", "REST", "Git", "Linux", "CI/CD",
+  { name: "Python", Icon: SiPython },
+  { name: "TypeScript", Icon: SiTypescript },
+  { name: "React", Icon: SiReact },
+  { name: "Next.js", Icon: SiNextdotjs },
+  { name: "Django", Icon: SiDjango },
+  { name: "FastAPI", Icon: SiFastapi },
+  { name: "Docker", Icon: SiDocker },
+  { name: "Kubernetes", Icon: SiKubernetes },
+  { name: "AWS", Icon: FaAws },
+  { name: "Langchain", Icon: SiLangchain },
+  { name: "Go", Icon: SiGo },
+  { name: "Linux", Icon: SiLinux },
+  { name: "Git", Icon: SiGit },
+  { name: "Metasploit", Icon: SiMetasploit },
+  { name: "Burp Suite", Icon: SiBurpsuite},
+  { name: "Wireshark", Icon: SiWireshark },
 ];
 
 export default function Skills() {
@@ -79,7 +113,7 @@ export default function Skills() {
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-text-primary leading-[0.95] tracking-tight mb-8">
               Technical
               <br />
-              <span className="text-gradient">arsenal.</span>
+              <span className="text-gradient">Arsenel.</span>
             </h2>
             <p className="text-text-secondary leading-relaxed max-w-md">
               A stack built across software engineering, offensive security and machine learning. Depth where it matters.
@@ -87,7 +121,7 @@ export default function Skills() {
           </div>
 
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 [grid-auto-rows:1fr]">
               {skillGroups.map((group, i) => (
                 <div key={group.label} className="skill-group">
                   <SpotlightCard className="h-full">
@@ -116,15 +150,31 @@ export default function Skills() {
 
       {/* Marquee */}
       <div className="mt-24 md:mt-32 border-y border-hairline py-8 overflow-hidden">
-        <div className="animate-marquee flex whitespace-nowrap">
-          {[...techMarquee, ...techMarquee].map((tech, i) => (
-            <span
-              key={`${tech}-${i}`}
-              className="mx-8 text-2xl md:text-4xl font-display font-semibold text-text-tertiary/30 select-none"
-            >
-              {tech}
-            </span>
-          ))}
+        <div className="animate-marquee flex whitespace-nowrap w-fit">
+          {techMarquee.map((tech, i) => {
+            const Icon = tech.Icon;
+            return (
+              <span
+                key={`a-${tech.name}-${i}`}
+                className="mx-8 flex items-center gap-3 text-text-tertiary/40 select-none"
+              >
+                <Icon size={28} className="opacity-60" />
+                <span className="text-xl md:text-2xl font-display font-semibold">{tech.name}</span>
+              </span>
+            );
+          })}
+          {techMarquee.map((tech, i) => {
+            const Icon = tech.Icon;
+            return (
+              <span
+                key={`b-${tech.name}-${i}`}
+                className="mx-8 flex items-center gap-3 text-text-tertiary/40 select-none"
+              >
+                <Icon size={28} className="opacity-60" />
+                <span className="text-xl md:text-2xl font-display font-semibold">{tech.name}</span>
+              </span>
+            );
+          })}
         </div>
       </div>
     </section>

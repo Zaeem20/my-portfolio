@@ -77,7 +77,7 @@ export default function OpenGraphImage() {
               color: "#a1a1aa",
             }}
           >
-            zaeem.dev
+            zaeem.is-a.dev
           </span>
         </div>
 

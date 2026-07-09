@@ -115,12 +115,12 @@ export default function Hero() {
             <div className="bezel-outer p-1.5">
               <div className="bezel-inner relative aspect-[4/3] lg:aspect-[16/12] overflow-hidden">
                 <Image
-                  src="https://picsum.photos/seed/cybersecurity-network-dark/1200/900"
+                  src="/bg-image.png"
                   alt="Abstract network security visualization"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-cover"
+                  className="object-cover object-[20%_center]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-void/90 via-void/20 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-r from-void/60 via-transparent to-transparent" />
